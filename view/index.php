@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+<?php
+include_once "../helper/connect.php";
+
+?>
 <html lang="en">
 <head>
 
@@ -51,9 +55,9 @@ http://www.tooplate.com/view/2083-steak-house
       <div class="row">
 
           <div class="col-md-offset-2 col-md-8 col-sm-12">
-              <h1 class="wow fadeInUp" data-wow-delay="0.6s">ANSA</h1>
+              <h1 class="wow fadeInUp" data-wow-delay="0.6s">ANSaA</h1>
               <p class="wow fadeInUp" data-wow-delay="1.0s">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet. Dolore magna aliquam erat volutpat.</p>
-              <a href="#feature" class="wow fadeInUp btn btn-default hvr-bounce-to-top smoothScroll" data-wow-delay="1.3s">Order Online</a>
+              <a href="#menu" class="wow fadeInUp btn btn-default hvr-bounce-to-top smoothScroll" data-wow-delay="1.3s">Order Online</a>
           </div>
 
       </div>
@@ -76,11 +80,13 @@ http://www.tooplate.com/view/2083-steak-house
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav navbar-right">
         <li><a href="#top" class="smoothScroll">Home</a></li>
+        <li><a href="#menu" class="smoothScroll">Menu</a></li>
+        <li><a href="user_menu.php" class="smoothScroll">Order Online</a></li>
         <li><a href="#feature" class="smoothScroll">About</a></li>
         <!--<li><a href="#about" class="smoothScroll">About</a></li>-->
-        <li><a href="#menu" class="smoothScroll">Menu</a></li>
+
        <!-- <li><a href="#team" class="smoothScroll">Team</a></li>-->
-        <li><a href="#order online" class="smoothScroll">Order Online</a></li>
+
         <li><a href="#contact" class="smoothScroll">Contact</a></li>
       </ul>
     </div>
@@ -89,16 +95,77 @@ http://www.tooplate.com/view/2083-steak-house
 </div>
 
 
+
+
+<!--About section 
+
+Menu section -->
+<section id="menu" class="parallax-section">
+  <div class="container">
+    <div class="row">
+
+      <div class="col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10">
+         <div class="wow fadeInUp section-title" data-wow-delay="0.3s">
+            <h2>Food Menu</h2>
+        </div>
+      </div>
+
+
+
+      <?php
+      $query = "SELECT * FROM menu ORDER BY id ASC";
+      $result = mysqli_query($connect,$query);
+      $i=1;
+      while(($row = mysqli_fetch_array($result)) &&( $i<=6)) {
+          $i++;
+
+        ?>
+
+        <div class="col-md-6 col-sm-12">
+        <div class="media wow fadeInUp" data-wow-delay="0.6s">
+          <div class="media-object pull-left">
+            <img src="<?php echo $row["image"]; ?>" class="img-responsive"  alt="Food Menu"/>
+           <!-- <span class="menu-price">Rs. <?php echo $row["price"]; ?></span>-->
+          </div>
+          <div class="media-body">
+            <h3 class="media-heading"><?php echo strtoupper($row["dish_name"]); ?> <span style="float:right"   class="menu-price">Rs. <?php echo $row["price"]; ?></span></h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elitquisque tempus ac eget diam et.</p>
+          </div>
+        </div>
+        </div>
+        
+        
+        <?php
+        }
+        ?>
+
+
+        <div class="col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10">
+            <div class="wow fadeInUp section-title" data-wow-delay="0.3s">
+                <a href="user_menu.php" class="wow fadeInUp btn btn-default hvr-bounce-to-top smoothScroll" data-wow-delay="1.3s">For More..</a>
+            </div>
+        </div>
+
+
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
 <!--Feature section-->
 <section id="feature" class="parallax-section">
   <div class="container">
     <div class="row">
 
       <div class="col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10">
-          <div class="wow fadeInUp section-title" data-wow-delay="0.6s">
-            <h2>ABOUT US</h2>
-            
-          </div>
+        <div class="wow fadeInUp section-title" data-wow-delay="0.6s">
+          <h2>ABOUT US</h2>
+
+        </div>
       </div>
 
       <div class="clearfix"></div>
@@ -106,7 +173,7 @@ http://www.tooplate.com/view/2083-steak-house
       <div class="col-md-4 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
         <div class="feature-thumb">
           <div class="feature-icon">
-             <span><i class="fa fa-coffee"></i></span>
+            <span><i class="fa fa-coffee"></i></span>
           </div>
           <h3>MASALA TEA</h3>
           <p>We serve the incredible masala tea with the real taste of Gujarat. Keep yourself refreshing for the day ahead.</p>
@@ -128,8 +195,8 @@ http://www.tooplate.com/view/2083-steak-house
           <div class="feature-icon">
             <span><i class="fa fa-cutlery"></i></span>
           </div>
-           <h3>SNACKS</h3>
-           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elitquisque tempus ac eget diam et laoreet phasellus.</p>
+          <h3>SNACKS</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elitquisque tempus ac eget diam et laoreet phasellus.</p>
         </div>
       </div>
 
@@ -138,165 +205,9 @@ http://www.tooplate.com/view/2083-steak-house
 </section>
 
 
-<!--About section 
-<section id="about" class="parallax-section">
-	<div class="container">
-		<div class="row">
-
-      <div class="col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10">
-          <div class="wow fadeInUp section-title" data-wow-delay="0.3s">
-            <h2>Our Story</h2>
-            <h4>Your Dining Restaurant since 1989</h4>
-          </div>
-      </div>
-
-      <div class="clearfix"></div>
-      
-      <div class="wow fadeInUp col-md-3 col-sm-5" data-wow-delay="0.3s">
-        <img src="images/about-img.jpg" class="img-responsive" alt="About">
-        <h3>Nunc ullamcorper suscipit neque, ac malesuada purus molestie non.</h3>
-      </div>
-
-      <div class="wow fadeInUp col-md-5 col-sm-7" data-wow-delay="0.5s">
-
-        flexslider
-        <div class="flexslider">
-          <ul class="slides">
-
-            <li>
-              <img src="images/slide-img1.jpg" alt="Flexslider">
-            </li>
-            <li>
-              <img src="images/slide-img2.jpg" alt="Flexslider">
-            </li>
-            <li>
-              <img src="images/slide-img3.jpg" alt="Flexslider">
-            </li>
-
-          </ul>
-        </div>
-
-         <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt. Lorem ipsum dolor sit amet.</p>
-      </div>
-
-       <div class="wow fadeInUp col-md-4 col-sm-12" data-wow-delay="0.9s">
-        	<h2>Fine Dining</h2>
-         	<p>Steak House is free HTML website template for everyone. Please inform your friends about <a rel="nofollow" href="http://www.tooplate.com/free-templates" target="_blank">Tooplate</a> site.</p>
-         	<p>Vestibulum id iaculis nisl. Pellentesque nec tortor sagittis, scelerisque ante at, sollicitudin leo. Vivamus pulvinar a justo vel lobortis.</p>
-         	
-            <ul>
-                <li>Donec fringilla ipsum</li>
-                <li>Integer nec urna</li>
-                <li>Curabitur porta</li>
-         	</ul>
-      </div>
-
-		</div>
-	</div>
-</section>
 
 
-Video section 
-<section id="video" class="parallax-section">
-  <div class="overlay"></div>
-    <div class="container">
-      <div class="row">
 
-          <div class="col-md-offset-2 col-md-8 col-sm-12">
-              <a class="popup-youtube" href="https://www.youtube.com/watch?v=CRhCMl7ZI84"><i class="fa fa-play"></i></a>
-              <h2 class="wow fadeInUp" data-wow-delay="0.5s">Watch the video</h2>
-              <p class="wow fadeInUp" data-wow-delay="0.8s">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet. Dolore magna aliquam erat volutpat.</p>
-          </div>
-
-      </div>
-    </div>
-</section>
-
-Menu section -->
-<section id="menu" class="parallax-section">
-  <div class="container">
-    <div class="row">
-
-      <div class="col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10">
-         <div class="wow fadeInUp section-title" data-wow-delay="0.3s">
-            <h2>Food Menu</h2>
-        </div>
-      </div>
-
-      <div class="col-md-6 col-sm-12">
-        <div class="media wow fadeInUp" data-wow-delay="0.6s">
-          <div class="media-object pull-left">
-            <img src="images/gallery-img1.jpg" class="img-responsive" alt="Food Menu">
-            <span class="menu-price">$24</span>
-          </div>
-          <div class="media-body">
-            <h3 class="media-heading">Breakfast</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elitquisque tempus ac eget diam et.</p>
-          </div>
-        </div>
-
-        <div class="media wow fadeInUp" data-wow-delay="0.9s">
-          <div class="media-object pull-left">
-            <img src="images/gallery-img2.jpg" class="img-responsive" alt="Food Menu">
-            <span class="menu-price">$36</span>
-          </div>
-          <div class="media-body">
-            <h3 class="media-heading">New Pizza</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elitquisque tempus ac eget diam et.</p>
-          </div>
-        </div>
-
-        <div class="media wow fadeInUp" data-wow-delay="1.2s">
-          <div class="media-object pull-left">
-            <img src="images/gallery-img3.jpg" class="img-responsive" alt="Food Menu">
-            <span class="menu-price">$24</span>
-          </div>
-          <div class="media-body">
-            <h3 class="media-heading">Mushroom</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elitquisque tempus ac eget diam et.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-6 col-sm-12">
-        <div class="media wow fadeInUp" data-wow-delay="1s">
-          <div class="media-object pull-left">
-            <img src="images/gallery-img4.jpg" class="img-responsive" alt="Food Menu">
-            <span class="menu-price">$32</span>
-          </div>
-          <div class="media-body">
-            <h3 class="media-heading">Seafood</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elitquisque tempus ac eget diam et.</p>
-          </div>
-        </div>
-
-        <div class="media wow fadeInUp" data-wow-delay="1.3s">
-          <div class="media-object pull-left">
-            <img src="images/gallery-img5.jpg" class="img-responsive" alt="Food Menu">
-            <span class="menu-price">$64</span>
-          </div>
-          <div class="media-body">
-            <h3 class="media-heading">Spicy Beef</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elitquisque tempus ac eget diam et.</p>
-          </div>
-        </div>
-
-        <div class="media wow fadeInUp" data-wow-delay="1.6s">
-          <div class="media-object pull-left">
-            <img src="images/gallery-img6.jpg" class="img-responsive" alt="Food Menu">
-            <span class="menu-price">$45</span>
-          </div>
-          <div class="media-body">
-            <h3 class="media-heading">Dinner</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elitquisque tempus ac eget diam et.</p>
-          </div>
-        </div>
-         <a href="#Menu" class="wow fadeInUp btn btn-default hvr-bounce-to-top smoothScroll" data-wow-delay="1.3s">For More..</a>
-      </div>
-
-    </div>
-  </div>
-</section>
 
 <!--Team section 
 <section id="team" class="parallax-section">
