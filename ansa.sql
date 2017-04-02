@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 01, 2017 at 09:34 AM
+-- Generation Time: Apr 02, 2017 at 04:54 PM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `eggafe`
+-- Database: `ansa`
 --
 
 -- --------------------------------------------------------
@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 CREATE TABLE IF NOT EXISTS `menu` (
   `id` int(11) NOT NULL,
   `dish_name` varchar(50) NOT NULL,
-  `image` varchar(50) NOT NULL,
+  `image` varchar(100) NOT NULL,
   `price` float NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -39,10 +39,10 @@ CREATE TABLE IF NOT EXISTS `menu` (
 --
 
 INSERT INTO `menu` (`id`, `dish_name`, `image`, `price`) VALUES
-(2, 'rkd', 'http://localhost/eggafe/view/images/13859.jpg', 78),
-(3, 'egg bhurj', 'http://localhost/eggafe/view/images/5308.jpg', 120),
-(4, 'egg curry', 'http://localhost/eggafe/view/images/19525.jpg', 130),
-(5, 'egg roll', 'http://localhost/eggafe/view/images/31749.jpg', 100);
+(2, 'rkd', 'http://localhost/Ansa_website/view/images/13859.jpg', 78),
+(3, 'egg bhurj', 'http://localhost/Ansa_website/view/images/5308.jpg', 120),
+(4, 'egg curry', 'http://localhost/Ansa_website/view/images/19525.jpg', 130),
+(5, 'egg roll', 'http://localhost/Ansa_website/view/images/31749.jpg', 100);
 
 -- --------------------------------------------------------
 
