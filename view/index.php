@@ -100,7 +100,7 @@ http://www.tooplate.com/view/2083-steak-house
 <!--About section 
 
 Menu section -->
-<section id="menu" class="parallax-section">
+<section id="menu" class="parallax-section ">
   <div class="container">
     <div class="row">
 
