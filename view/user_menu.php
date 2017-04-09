@@ -83,9 +83,8 @@ include_once "../helper/connect.php";
                         </tr>
                         <tr>
                             <td colspan="5" align="center">
-                                <form method="post" action="cart.php">
-                                    <input type="submit" name="place_order" class="btn btn-warning" value="Place Order" />
-                                </form>
+                                <input type="button" value="Place_Order" id="submitBtn"
+                                       data-toggle="modal" data-target="#confirm-submit" class="btn btn-danger" />
                             </td>
                         </tr>
                         <?php
@@ -96,6 +95,41 @@ include_once "../helper/connect.php";
         </div>
     </div>
 </div>
+<div class="modal fade" id="confirm-submit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                Confirm Submit
+            </div>
+            <div class="modal-body">
+                <form method="post" action="../controller/cart.php">
+                    Name: <input type="text" name="name" value="" pattern="[A-Za-z ]+" required>
+
+                    <br><br>
+                    E-mail: <input type="email" name="email" value="" >
+
+                    <br><br>
+                    contact_no: <input type="text" name="contact_no" value="" pattern="[789][0-9]{9}" required>
+
+                    <br><br>
+                    Address: <input type="text" name="address" value="" required>
+
+                    <br><br>
+                    Landmark: <input type="text" name="landmark" value="">
+                    <br><br>
+                    <input type="submit" name="place_order" value="Place Order">
+
+                </form>
+
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+
+            </div>
+        </div>
+    </div>
+    </div>
 </body>
 </html>
 
