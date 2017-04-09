@@ -55,7 +55,7 @@ http://www.tooplate.com/view/2083-steak-house
       <div class="row">
 
           <div class="col-md-offset-2 col-md-8 col-sm-12">
-              <h1 class="wow fadeInUp" data-wow-delay="0.6s">ANSaA</h1>
+              <h1 class="wow fadeInUp" data-wow-delay="0.6s">ANSA</h1>
               <p class="wow fadeInUp" data-wow-delay="1.0s">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet. Dolore magna aliquam erat volutpat.</p>
               <a href="#menu" class="wow fadeInUp btn btn-default hvr-bounce-to-top smoothScroll" data-wow-delay="1.3s">Order Online</a>
           </div>
