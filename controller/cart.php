@@ -7,9 +7,9 @@ include_once "../helper/connect.php";
 <html>
 	<head>
 		<title>Webslesson Tutorial | Multi Tab Shopping Cart By Using PHP Ajax Jquery Bootstrap Mysql</title>
-		<script src="../js/jquery.min.js"></script>
-		<link rel="stylesheet" href="../css/bootstrap.min.css" />
-		<script src="../js/bootstrap.min.js"></script>
+		<script src="../view/js/jquery.min.js"></script>
+		<link rel="stylesheet" href="../view/css/bootstrap.min.css" />
+		<script src="../view/js/bootstrap.min.js"></script>
 	</head>
 	<body>
 		<br />
