@@ -20,19 +20,23 @@ include_once "../helper/connect.php";
 <body>
 <br>
 
+<img class="backgrnd" src="../view/body.jpg" class="img-responsive"/>
+<h1 class="text-center">ORDER ONLINE</h1>
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a class="navbar-brand" href="#">ANSA</a>
+            <a class="navbar-brand" href="#" style="font-size: 200%;color: white;">ANSA</a>
         </div>
         <ul class="nav navbar-nav navbar-right">
             <li class="active"><a href="#">Home</a></li>
-            <li><a href="#">Page 1</a></li>
-            <li><a href="#">Page 2</a></li>
-            <li><a href="#">Page 3</a></li>
+            <li><a href="#">About us</a></li>
+            <li><a href="#">Menu</a></li>
+            <li><a href="#">Order Online</a></li>
+            <li><a href="#">Contact</a></li>
         </ul>
     </div>
 </nav>
+
 <div class="container">
     <div class="row">
         <div id="products" class="col-md-8 col-sm-8" style="margin-left:-50px; margin-right:40px;">
@@ -42,7 +46,7 @@ include_once "../helper/connect.php";
             while($row = mysqli_fetch_array($result))
             {
                 ?>
-                <div class="col-md-4 col-sm-4" style="margin-top:100px;">
+                <div class="col-md-6 col-sm-6" style="margin-top:24%;">
                     <div style=" height:300px;" align="center">
                         <img src="<?php echo $row["image"]; ?>" class="img-responsive" style="height:220px;" /><br />
                         <h4 class="text-info"><?php echo $row["dish_name"];?>  <?php echo str_repeat('&nbsp;',9); echo "Rs."; echo $row["price"]; ?></h4>
@@ -61,7 +65,7 @@ include_once "../helper/connect.php";
 
 
 
-        <div id="cart" class="col-md-4 col-sm-4" style="margin-top:100px;">
+        <div id="cart" class="col-md-4 col-sm-4" style="margin-top:15%;">
             <div class="table-responsive" id="order_table">
                 <table class="table table-bordered">
                     <tr>
