@@ -7,7 +7,6 @@ session_start();
  * Time: 21:15 PM
  */
 include_once "../helper/connect.php";
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -15,30 +14,40 @@ include_once "../helper/connect.php";
     <title>Webslesson Tutorial | Multi Tab Shopping Cart By Using PHP Ajax Jquery Bootstrap Mysql</title>
     <script src="js/jquery.min.js"></script>
     <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/extra_style.css"/>
     <script src="js/bootstrap.min.js"></script>
 </head>
 <body>
-<br />
-<div class="container" style="width:800px;">
-    <h3 align="center">Multi Tab Shopping Cart By Using PHP Ajax Jquery Bootstrap Mysql</h3><br />
-    <ul class="nav nav-tabs">
-        <li class="active"><a data-toggle="tab" href="#products">Product</a></li>
-        <li><a data-toggle="tab" href="#cart">Cart <span class="badge"><?php if(isset($_SESSION["shopping_cart"])) { echo count($_SESSION["shopping_cart"]); } else { echo '0';}?></span></a></li>
-    </ul>
-    <div class="tab-content">
-        <div id="products" class="tab-pane fade in active">
+<br>
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">ANSA</a>
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#">Page 1</a></li>
+            <li><a href="#">Page 2</a></li>
+            <li><a href="#">Page 3</a></li>
+        </ul>
+    </div>
+</nav>
+<div class="container">
+    <div class="row">
+        <div id="products" class="col-md-8 col-sm-8" style="margin-left:-50px; margin-right:40px;">
             <?php
             $query = "SELECT * FROM menu ORDER BY id ASC";
             $result = mysqli_query($connect,$query);
             while($row = mysqli_fetch_array($result))
             {
                 ?>
-                <div class="col-md-4" style="margin-top:12px;">
-                    <div style="border:1px solid #333; background-color:#f1f1f1; border-radius:5px; padding:16px; height:350px;" align="center">
-                        <img src="<?php echo $row["image"]; ?>" class="img-responsive" /><br />
-                        <h4 class="text-info"><?php echo $row["dish_name"]; ?></h4>
-                        <h4 class="text-danger">Rs. <?php echo $row["price"]; ?></h4>
-                        <input type="text" name="quantity" id="quantity<?php echo $row["id"]; ?>" class="form-control" value="1" />
+                <div class="col-md-4 col-sm-4" style="margin-top:100px;">
+                    <div style=" height:300px;" align="center">
+                        <img src="<?php echo $row["image"]; ?>" class="img-responsive" style="height:220px;" /><br />
+                        <h4 class="text-info"><?php echo $row["dish_name"];?>  <?php echo str_repeat('&nbsp;',9); echo "Rs."; echo $row["price"]; ?></h4>
+                        <!--<h4 class="text-danger">Rs. <?php echo $row["price"]; ?></h4>-->
+                        <input type="text" name="quantity" id="quantity<?php echo $row["id"]; ?>" class="form-control " value="1" />
                         <input type="hidden" name="hidden_name" id="name<?php echo $row["id"]; ?>" value="<?php echo $row["dish_name"]; ?>" />
                         <input type="hidden" name="hidden_price" id="price<?php echo $row["id"]; ?>" value="<?php echo $row["price"]; ?>" />
                         <input type="button" name="add_to_cart" id="<?php echo $row["id"]; ?>" style="margin-top:5px;" class="btn btn-warning form-control add_to_cart" value="Add to Cart" />
@@ -47,8 +56,12 @@ include_once "../helper/connect.php";
                 <?php
             }
             ?>
+            <br>
         </div>
-        <div id="cart" class="tab-pane fade">
+
+
+
+        <div id="cart" class="col-md-4 col-sm-4" style="margin-top:100px;">
             <div class="table-responsive" id="order_table">
                 <table class="table table-bordered">
                     <tr>
@@ -101,7 +114,6 @@ include_once "../helper/connect.php";
 
 <script>
     $(document).ready(function(data){
-
         $('.add_to_cart').click(function(){
             var product_id = $(this).attr("id");
             var product_name = $('#name'+product_id).val();
@@ -134,7 +146,6 @@ include_once "../helper/connect.php";
                 alert("Please Enter Number of Quantity")
             }
         });
-
         $(document).on('click', '.delete', function(){
             var product_id = $(this).attr("id");
             var action = "remove";
@@ -156,7 +167,6 @@ include_once "../helper/connect.php";
                 return false;
             }
         });
-
         $(document).on('keyup', '.quantity', function(){
             var product_id = $(this).data("product_id");
             var quantity = $(this).val();
@@ -174,6 +184,5 @@ include_once "../helper/connect.php";
                 });
             }
         });
-
     });
 </script>
