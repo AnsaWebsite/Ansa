@@ -22,19 +22,30 @@ include_once "../helper/connect.php";
 
 <img class="backgrnd" src="../view/body.jpg" class="img-responsive"/>
 <h1 class="text-center">ORDER ONLINE</h1>
+
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container-fluid">
         <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
             <a class="navbar-brand" href="#" style="font-size: 200%;color: white;">ANSA</a>
         </div>
-        <ul class="nav navbar-nav navbar-right">
-            <li class="active"><a href="#">Home</a></li>
-            <li><a href="#">About us</a></li>
-            <li><a href="#">Menu</a></li>
-            <li><a href="#">Order Online</a></li>
-            <li><a href="#">Contact</a></li>
-        </ul>
+        <div class="collapse navbar-collapse" id="myNavbar">
+           <ul class="nav navbar-nav navbar-right">
+              <li class="active"><a href="#">Home</a></li>
+              <li><a href="#">About us</a></li>
+              <li><a href="#">Menu</a></li>
+              <li><a href="#">Order Online</a></li>
+              <li><a href="#">Contact</a></li>
+           </ul>
+        </div>
     </div>
+</nav>
+
+
 </nav>
 
 <div class="container">
