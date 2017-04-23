@@ -80,9 +80,10 @@ http://www.tooplate.com/view/2083-steak-house
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav navbar-right">
         <li><a href="#top" class="smoothScroll">Home</a></li>
+          <li><a href="#feature" class="smoothScroll">About</a></li>
         <li><a href="#menu" class="smoothScroll">Menu</a></li>
         <li><a href="user_menu.php" class="smoothScroll">Order Online</a></li>
-        <li><a href="#feature" class="smoothScroll">About</a></li>
+
         <!--<li><a href="#about" class="smoothScroll">About</a></li>-->
 
        <!-- <li><a href="#team" class="smoothScroll">Team</a></li>-->
@@ -99,60 +100,7 @@ http://www.tooplate.com/view/2083-steak-house
 
 <!--About section 
 
-Menu section -->
-<section id="menu" class="parallax-section ">
-  <div class="container">
-    <div class="row">
 
-      <div class="col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10">
-         <div class="wow fadeInUp section-title" data-wow-delay="0.3s">
-            <h2>Food Menu</h2>
-        </div>
-      </div>
-
-
-
-      <?php
-      $query = "SELECT * FROM menu ORDER BY id ASC";
-      $result = mysqli_query($connect,$query);
-      $i=1;
-      while(($row = mysqli_fetch_array($result)) &&( $i<=6)) {
-          $i++;
-
-        ?>
-
-        <div class="col-md-6 col-sm-12">
-        <div class="media wow fadeInUp" data-wow-delay="0.6s">
-          <div class="media-object pull-left">
-            <img src="<?php echo $row["image"]; ?>" class="img-responsive"  alt="Food Menu"/>
-           <!-- <span class="menu-price">Rs. <?php echo $row["price"]; ?></span>-->
-          </div>
-          <div class="media-body">
-            <h3 class="media-heading"><?php echo strtoupper($row["dish_name"]); ?> <span style="float:right"   class="menu-price">Rs. <?php echo $row["price"]; ?></span></h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elitquisque tempus ac eget diam et.</p>
-          </div>
-        </div>
-        </div>
-        
-        
-        <?php
-        }
-        ?>
-
-
-        <div class="col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10">
-            <div class="wow fadeInUp section-title" data-wow-delay="0.3s">
-                <a href="user_menu.php" class="wow fadeInUp btn btn-default hvr-bounce-to-top smoothScroll" data-wow-delay="1.3s">For More..</a>
-            </div>
-        </div>
-
-
-
-      </div>
-
-    </div>
-  </div>
-</section>
 
 
 
@@ -205,7 +153,60 @@ Menu section -->
 </section>
 
 
+Menu section -->
+<section id="menu" class="parallax-section ">
+    <div class="container">
+        <div class="row">
 
+            <div class="col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10">
+                <div class="wow fadeInUp section-title" data-wow-delay="0.3s">
+                    <h2>Food Menu</h2>
+                </div>
+            </div>
+
+
+
+            <?php
+            $query = "SELECT * FROM menu ORDER BY id ASC";
+            $result = mysqli_query($connect,$query);
+            $i=1;
+            while(($row = mysqli_fetch_array($result)) &&( $i<=6)) {
+                $i++;
+
+                ?>
+
+                <div class="col-md-6 col-sm-12">
+                    <div class="media wow fadeInUp" data-wow-delay="0.6s">
+                        <div class="media-object pull-left">
+                            <img src="<?php echo $row["image"]; ?>" class="img-responsive"  alt="Food Menu"/>
+                            <!-- <span class="menu-price">Rs. <?php echo $row["price"]; ?></span>-->
+                        </div>
+                        <div class="media-body">
+                            <h3 class="media-heading"><?php echo strtoupper($row["dish_name"]); ?> <span style="float:right"   class="menu-price">Rs. <?php echo $row["price"]; ?></span></h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elitquisque tempus ac eget diam et.</p>
+                        </div>
+                    </div>
+                </div>
+
+
+                <?php
+            }
+            ?>
+
+
+            <div class="col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10">
+                <div class="wow fadeInUp section-title" data-wow-delay="0.3s">
+                    <a href="user_menu.php" class="wow fadeInUp btn btn-default hvr-bounce-to-top smoothScroll" data-wow-delay="1.3s">For More..</a>
+                </div>
+            </div>
+
+
+
+        </div>
+
+    </div>
+    </div>
+</section>
 
 
 

@@ -35,11 +35,11 @@ include_once "../helper/connect.php";
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
            <ul class="nav navbar-nav navbar-right">
-              <li class="active"><a href="#">Home</a></li>
-              <li><a href="#">About us</a></li>
+              <li class="active"><a href="index.php">Home</a></li>
+              <li><a href="index.php #feature">About us</a></li>
               <li><a href="#">Menu</a></li>
-              <li><a href="#">Order Online</a></li>
-              <li><a href="#">Contact</a></li>
+              <li><a href="user_menu.php">Order Online</a></li>
+              <li><a href="#contact">Contact</a></li>
            </ul>
         </div>
     </div>
@@ -50,24 +50,31 @@ include_once "../helper/connect.php";
 
 <div class="container">
     <div class="row">
-        <div id="products" class="col-md-8 col-sm-8" style="margin-left:-50px; margin-right:40px;">
+        <div class="page-header" style="text-align: center;">
+            <h1>OUR MENU</h1>
+            <h1>Order now and have fun!</h1>
+        </div>
+        <div id="products" class="col-md-7">
             <?php
             $query = "SELECT * FROM menu ORDER BY id ASC";
             $result = mysqli_query($connect,$query);
             while($row = mysqli_fetch_array($result))
             {
                 ?>
-                <div class="col-md-6 col-sm-6" style="margin-top:24%;">
-                    <div style=" height:300px;" align="center">
-                        <img src="<?php echo $row["image"]; ?>" class="img-responsive" style="height:220px;" /><br />
+                <div class="col-md-6">
+                    <div class="thumbnail" style="border-radius: 0%">
+                        <img src="<?php echo $row["image"]; ?>" class="img-responsive" style="height:200px; width: 100%;" /><br />
+                        <div class="caption">
                         <h4 class="text-info"><?php echo $row["dish_name"];?>  <?php echo str_repeat('&nbsp;',9); echo "Rs."; echo $row["price"]; ?></h4>
                         <!--<h4 class="text-danger">Rs. <?php echo $row["price"]; ?></h4>-->
-                        <input type="text" name="quantity" id="quantity<?php echo $row["id"]; ?>" class="form-control " value="1" />
+                        <!--<input type="text" name="quantity" id="quantity<?php echo $row["id"]; ?>" class="form-control " value="1" />-->
                         <input type="hidden" name="hidden_name" id="name<?php echo $row["id"]; ?>" value="<?php echo $row["dish_name"]; ?>" />
                         <input type="hidden" name="hidden_price" id="price<?php echo $row["id"]; ?>" value="<?php echo $row["price"]; ?>" />
                         <input type="button" name="add_to_cart" id="<?php echo $row["id"]; ?>" style="margin-top:5px;" class="btn btn-warning form-control add_to_cart" value="Add to Cart" />
                     </div>
+                    </div>
                 </div>
+
                 <?php
             }
             ?>
@@ -76,7 +83,8 @@ include_once "../helper/connect.php";
 
 
 
-        <div id="cart" class="col-md-4 col-sm-4" style="margin-top:15%;">
+        <div id="cart" class="col-md-5" style="margin-top:15%;">
+            <div class="menu2">
             <div class="table-responsive" id="order_table">
                 <table class="table table-bordered">
                     <tr>
@@ -112,7 +120,7 @@ include_once "../helper/connect.php";
                         <tr>
                             <td colspan="5" align="center">
                                 <input type="button" value="Place_Order" id="submitBtn"
-                                       data-toggle="modal" data-target="#confirm-submit" class="btn btn-danger" />
+                                       data-toggle="modal" data-target="#confirm-submit" class="btn btn-success" />
                             </td>
                         </tr>
                         <?php
@@ -121,6 +129,10 @@ include_once "../helper/connect.php";
                 </table>
             </div>
         </div>
+    </div>
+</div>
+</div>
+
     </div>
 </div>
 <div class="modal fade" id="confirm-submit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
