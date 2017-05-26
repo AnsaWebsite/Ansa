@@ -6,14 +6,8 @@ include_once "../helper/connect.php";
 <html lang="en">
 <head>
 
-	<title>Steak House - Free HTML CSS Template</title>
-<!--
+	<title>Ansa</title>
 
-Template 2083 Steak House
-
-http://www.tooplate.com/view/2083-steak-house
-
--->
   	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -35,9 +29,11 @@ http://www.tooplate.com/view/2083-steak-house
   	<link rel="stylesheet" href="css/flexslider.css">
 
 	<link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
   	<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
   	<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,600' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Handlee|Limelight" rel="stylesheet">
 
 </head>
 <body id="top" data-spy="scroll" data-target=".navbar-collapse" data-offset="50">
@@ -55,9 +51,10 @@ http://www.tooplate.com/view/2083-steak-house
       <div class="row">
 
           <div class="col-md-offset-2 col-md-8 col-sm-12">
-              <h1 class="wow fadeInUp" data-wow-delay="0.6s">ANSA</h1>
-              <p class="wow fadeInUp" data-wow-delay="1.0s">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet. Dolore magna aliquam erat volutpat.</p>
-              <a href="#menu" class="wow fadeInUp btn btn-default hvr-bounce-to-top smoothScroll" data-wow-delay="1.3s">Order Online</a>
+              <h1 class="wow fadeInUp" data-wow-delay="0.6s"style="font-family: 'Handlee', cursive;
+font-family: 'Limelight', cursive;font-size: 100px;">ANSA</h1>
+              <p class="wow fadeInUp" data-wow-delay="1.0s">Presenting small and yummy Gujarati snacks to make every section of yur tongue feel yummmmm....!!  .</p>
+              <a href="user_menu.php" class="wow fadeInUp btn btn-default hvr-bounce-to-top smoothScroll" data-wow-delay="1.3s"style="font-family: 'Handlee', cursive;font-weight:600">Order Online</a>
           </div>
 
       </div>
@@ -75,19 +72,17 @@ http://www.tooplate.com/view/2083-steak-house
         <span class="icon icon-bar"></span>
         <span class="icon icon-bar"></span>
       </button>
-      <a href="#" class="navbar-brand">ANSA</a>
+      <a href="#" class="navbar-brand" style="font-family: 'Handlee', cursive;
+font-family: 'Limelight', cursive;">ANSA</a>
     </div>
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav navbar-right">
         <li><a href="#top" class="smoothScroll">Home</a></li>
+          <li><a href="#feature" class="smoothScroll">About</a></li>
         <li><a href="#menu" class="smoothScroll">Menu</a></li>
         <li><a href="user_menu.php" class="smoothScroll">Order Online</a></li>
-        <li><a href="#feature" class="smoothScroll">About</a></li>
-        <!--<li><a href="#about" class="smoothScroll">About</a></li>-->
-
-       <!-- <li><a href="#team" class="smoothScroll">Team</a></li>-->
-
         <li><a href="#contact" class="smoothScroll">Contact</a></li>
+          <li><a href="#cart"><span class="glyphicon glyphicon-shopping-cart"></span> </a></li>
       </ul>
     </div>
 
@@ -95,68 +90,7 @@ http://www.tooplate.com/view/2083-steak-house
 </div>
 
 
-
-
-<!--About section 
-
-Menu section -->
-<section id="menu" class="parallax-section ">
-  <div class="container">
-    <div class="row">
-
-      <div class="col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10">
-         <div class="wow fadeInUp section-title" data-wow-delay="0.3s">
-            <h2>Food Menu</h2>
-        </div>
-      </div>
-
-
-
-      <?php
-      $query = "SELECT * FROM menu ORDER BY id ASC";
-      $result = mysqli_query($connect,$query);
-      $i=1;
-      while(($row = mysqli_fetch_array($result)) &&( $i<=6)) {
-          $i++;
-
-        ?>
-
-        <div class="col-md-6 col-sm-12">
-        <div class="media wow fadeInUp" data-wow-delay="0.6s">
-          <div class="media-object pull-left">
-            <img src="<?php echo $row["image"]; ?>" class="img-responsive"  alt="Food Menu"/>
-           <!-- <span class="menu-price">Rs. <?php echo $row["price"]; ?></span>-->
-          </div>
-          <div class="media-body">
-            <h3 class="media-heading"><?php echo strtoupper($row["dish_name"]); ?> <span style="float:right"   class="menu-price">Rs. <?php echo $row["price"]; ?></span></h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elitquisque tempus ac eget diam et.</p>
-          </div>
-        </div>
-        </div>
-        
-        
-        <?php
-        }
-        ?>
-
-
-        <div class="col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10">
-            <div class="wow fadeInUp section-title" data-wow-delay="0.3s">
-                <a href="user_menu.php" class="wow fadeInUp btn btn-default hvr-bounce-to-top smoothScroll" data-wow-delay="1.3s">For More..</a>
-            </div>
-        </div>
-
-
-
-      </div>
-
-    </div>
-  </div>
-</section>
-
-
-
-<!--Feature section-->
+<!--About section-->
 <section id="feature" class="parallax-section">
   <div class="container">
     <div class="row">
@@ -196,7 +130,7 @@ Menu section -->
             <span><i class="fa fa-cutlery"></i></span>
           </div>
           <h3>SNACKS</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elitquisque tempus ac eget diam et laoreet phasellus.</p>
+          <p>We are ready with the gujarati Farsan to give your tea coffee a good company and complementary taste</p>
         </div>
       </div>
 
@@ -205,221 +139,74 @@ Menu section -->
 </section>
 
 
+<!--Menu section -->
+<section id="menu" class="parallax-section ">
+    <div class="container">
+        <div class="row" style="margin-top: -20px;">
 
-
-
-
-<!--Team section 
-<section id="team" class="parallax-section">
-  <div class="container">
-    <div class="row">
-
-      <div class="col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10">
-         <div class="wow fadeInUp section-title" data-wow-delay="0.3s">
-            <h2>Meet Our Chefs</h2>
-            <h4>we are food specialists</h4>
-        </div>
-      </div>
-
-      <div class="clearfix"></div>
-
-      <div class="col-md-3 col-sm-6 wow fadeInUp" data-wow-delay="0.4s">
-          <div class="team-thumb">
-            <img src="images/chef1.jpg" class="img-responsive" alt="Team">  
-                <div class="team-des">
-                  <h3>Sandar</h3>
-                  <h4>Kitchen Manager</h4>
-                    <ul class="social-icon">
-                      <li><a href="#" class="fa fa-facebook"></a></li>
-                      <li><a href="#" class="fa fa-twitter"></a></li>
-                      <li><a href="#" class="fa fa-dribbble"></a></li>
-                    </ul>
+            <div class="col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10">
+                <div class="wow fadeInUp section-title" data-wow-delay="0.3s">
+                    <h2>Food Menu</h2>
                 </div>
-          </div>
-      </div>
+            </div>
 
-      <div class="col-md-3 col-sm-6 wow fadeInUp" data-wow-delay="0.6s">
-          <div class="team-thumb">
-            <img src="images/chef2.jpg" class="img-responsive" alt="Team">  
-              <div class="team-des">
-                <h3>Candy</h3>
-                <h4>Co-Founder</h4>
-                  <ul class="social-icon">
-                      <li><a href="#" class="fa fa-twitter"></a></li>
-                  </ul>
-              </div>
-          </div>
-      </div>
 
-      <div class="col-md-3 col-sm-6 wow fadeInUp" data-wow-delay="0.9s">
-          <div class="team-thumb">
-            <img src="images/chef3.jpg" class="img-responsive" alt="Team">  
-              <div class="team-des">
-                <h3>Mama</h3>
-                <h4>Senior Chef</h4>
-                  <ul class="social-icon">
-                      <li><a href="#" class="fa fa-facebook"></a></li>
-                      <li><a href="#" class="fa fa-twitter"></a></li>
-                  </ul>
-              </div>
-          </div>
-      </div>
 
-      <div class="col-md-3 col-sm-6 wow fadeInUp" data-wow-delay="1.1s">
-          <div class="join-team">
-            <i class="fa fa-plus"></i>
-            <p>Fusce interdum libero id libero volutpat varius convallis at sem.</p>
-            <a href="#" class="btn btn-default hvr-bounce-to-bottom">JOIN US</a>
-          </div>
-      </div>
+            <?php
+            $query = "SELECT * FROM menu ORDER BY id ASC";
+            $result = mysqli_query($connect,$query);
+            $i=1;
+            while(($row = mysqli_fetch_array($result)) &&( $i<=6)) {
+                $i++;
 
-      <div class="clearfix"></div>
+                ?>
 
-      <div class="wow fadeInUp col-md-6 col-sm-6" data-wow-delay="0.3s">
-        <h2>Our Taste</h2>
-         <p>Fusce lobortis quis nisl nec facilisis. Donec fringilla ipsum arcu, quis maximus est molestie eget. Nunc ullamcorper suscipit neque, ac malesuada purus molestie non. Phasellus sollicitudin urna sed ultrices dictum.</p>
-      </div>
-
-      <div class="wow fadeInUp col-md-6 col-sm-6" data-wow-delay="0.6s">
-        <h2>Our Service</h2>
-         <p>Maecenas dictum cursus dui, quis mattis eros ultricies sed. Maecenas ligula nulla, dictum eu cursus id, semper in orci. Fusce vel nisi hendrerit justo viverra vehicula in nec nunc. Curabitur blandit fringilla quam.</p>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-Gallery section 
-<section id="gallery" class="parallax-section">
-  <div class="container">
-    <div class="row">
-
-      <div class="col-md-12">
-
-       <div class="col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10">
-         <div class="wow fadeInUp section-title" data-wow-delay="0.3s">
-            <h2>Food Gallery</h2>
-            <h4>we have special foods</h4>
-        </div>
-      </div>
-        
-           iso section 
-          <div class="iso-section wow fadeInUp" data-wow-delay="0.6s">
-
-            		<ul class="filter-wrapper clearfix">
-                        <li><a href="#" data-filter="*" class="selected opc-main-bg">All</a></li>
-                        <li><a href="#" class="opc-main-bg" data-filter=".breakfast">Breakfast</a></li>
-                        <li><a href="#" class="opc-main-bg" data-filter=".pizza">Pizza</a></li>
-                        <li><a href="#" class="opc-main-bg" data-filter=".lunch">Lunch</a></li>
-                        <li><a href="#" class="opc-main-bg" data-filter=".dinner">Dinner</a></li>
-                    </ul>
-
-                    iso box section 
-                    <div class="iso-box-section wow fadeInUp" data-wow-delay="0.9s">
-                      <div class="iso-box-wrapper col4-iso-box">
-
-                        <div class="iso-box breakfast pizza lunch col-md-4 col-sm-6">
-                          <div class="gallery-thumb">
-                            <a href="images/gallery-img1.jpg" data-lightbox-gallery="food-gallery">
-                              <img src="images/gallery-img1.jpg" class="fluid-img" alt="Gallery">
-                                <div class="gallery-overlay">
-                                  <div class="gallery-item">
-                                    <i class="fa fa-search"></i>
-                                  </div>
-                                </div>
-                            </a>
-                          </div>
-                          <h3>Lorem One</h3>
+                <div class="col-md-6 col-sm-12">
+                    <div class="well well-sm">
+                    <div class="media wow fadeInUp" data-wow-delay="0.6s">
+                        <div class="media-object pull-left">
+                            <img src="<?php echo $row["image"]; ?>" class="img-responsive"  alt="Food Menu"/>
+                            <!-- <span class="menu-price"><?php echo $row["price"]; ?></span>-->
                         </div>
-
-                        <div class="iso-box breakfast lunch dinner col-md-4 col-sm-6">
-                          <div class="gallery-thumb">
-                            <a href="images/gallery-img2.jpg" data-lightbox-gallery="food-gallery">
-                              <img src="images/gallery-img2.jpg" class="fluid-img" alt="Gallery">
-                                <div class="gallery-overlay">
-                                  <div class="gallery-item">
-                                    <i class="fa fa-search"></i>
-                                  </div>
-                                </div>
-                            </a>
-                          </div>
-                          <h3>Lorem ipsum two</h3>
+                        <div class="media-body" style="margin-top: 20px;">
+                            <h3 class="media-heading" style="margin-top: 20px;"><?php echo strtoupper($row["dish_name"]); ?> <span style="float:right"   class="menu-price">&#8377;<?php echo $row["price"]; ?></span></h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elitquisque tempus ac eget diam et.</p>
                         </div>
-
-                        <div class="iso-box dinner col-md-4 col-sm-6">
-                          <div class="gallery-thumb">
-                            <a href="images/gallery-img3.jpg" data-lightbox-gallery="food-gallery">
-                              <img src="images/gallery-img3.jpg" class="fluid-img" alt="Gallery">
-                                <div class="gallery-overlay">
-                                  <div class="gallery-item">
-                                    <i class="fa fa-search"></i>
-                                  </div>
-                                </div>
-                            </a>
-                          </div>
-                          <h3>Third Lorem ipsum</h3>
-                        </div>
-
-                        <div class="iso-box breakfast col-md-4 col-sm-6">
-                          <div class="gallery-thumb">
-                            <a href="images/gallery-img4.jpg" data-lightbox-gallery="food-gallery">
-                              <img src="images/gallery-img4.jpg" class="fluid-img" alt="Gallery">
-                                <div class="gallery-overlay">
-                                  <div class="gallery-item">
-                                    <i class="fa fa-search"></i>
-                                  </div>
-                                </div>
-                            </a>
-                          </div>
-                          <h3>Lorem ipsum fourth</h3>
-                        </div>
-
-                        <div class="iso-box lunch col-md-4 col-sm-6">
-                          <div class="gallery-thumb">
-                            <a href="images/gallery-img5.jpg" data-lightbox-gallery="food-gallery">
-                              <img src="images/gallery-img5.jpg" class="fluid-img" alt="Gallery">
-                                <div class="gallery-overlay">
-                                  <div class="gallery-item">
-                                    <i class="fa fa-search"></i>
-                                  </div>
-                                </div>
-                            </a>
-                          </div>
-                          <h3>Fifth Lorem ipsum</h3>
-                        </div>
-
-                        <div class="iso-box pizza lunch col-md-4 col-sm-6">
-                          <div class="gallery-thumb">
-                            <a href="images/gallery-img6.jpg" data-lightbox-gallery="food-gallery">
-                              <img src="images/gallery-img6.jpg" class="fluid-img" alt="Gallery">
-                                <div class="gallery-overlay">
-                                  <div class="gallery-item">
-                                    <i class="fa fa-search"></i>
-                                  </div>
-                                </div>
-                            </a>
-                          </div>
-                          <h3>Sixth Lorem ipsum</h3>
-                        </div>
-
-                       </div>
                     </div>
+                </div>
+                </div>
 
-          </div>
+                <?php
+            }
+            ?>
 
-      </div>
+
+            <div class="col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10">
+                <div class="wow fadeInUp section-title" data-wow-delay="0.3s">
+                    <a href="user_menu.php" class="wow fadeInUp btn btn-default hvr-bounce-to-top smoothScroll" data-wow-delay="1.3s" style="margin-bottom: -80px;">For More..</a>
+                </div>
+            </div>
+
+
+
+        </div>
 
     </div>
-  </div>
+    </div>
 </section>
 
-Contact section -->
+
+<!--Contact section -->
 <section id="contact" class="parallax-section">
   <div class="overlay"></div>
 	<div class="container">
 		<div class="row">
 
-			<div class="col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10">
+            <div class="col-md-6">
+
+            </div>
+            <div class="col-md-6">
+			<!--<div class="col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10"-->
             <div class="wow fadeInUp section-title" data-wow-delay="0.3s">
                 <h2>Say hello</h2>
                 <h4>we are always ready to serve you!</h4>
@@ -433,7 +220,8 @@ Contact section -->
 					</form>
 				</div>
 			</div>
-			
+            </div>
+
 		</div>
 	</div>
 </section>
@@ -444,7 +232,7 @@ Contact section -->
 		<div class="row">
 
               <div class="wow fadeInUp col-md-4 col-sm-4" data-wow-delay="1.3s">
-                <h3>About the house</h3>
+                <h3>About the owner</h3>
                 <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod 
                 	tincidunt ut laoreet. Dolore magna aliquam erat volutpat ipsum.</p>
               </div>  
@@ -474,7 +262,7 @@ Contact section -->
     <div class="row">
 
       <div class="col-md-8 col-sm-8 col-xs-8">
-        <p>Copyright © 2016 Steak House Company - Designed by <a class="designed-by" href="https://plus.google.com/+Tooplate/" target="_blank">Tooplate</a></p>
+        <p>Copyright © 2017<a class="designed-by" href="https://github.com/AnsaWebsite/Ansa" target="_blank"> IIITV Students</a></p>
       </div>  
 
       <div class="col-md-4 col-sm-4 text-right">
