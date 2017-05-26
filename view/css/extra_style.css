@@ -1,27 +1,147 @@
+body {
+	background: rgba(236, 236, 236, 0.53);
+	font-family: 'Source Sans Pro', sans-serif;
+	font-weight: 300;
+}
 .backgrnd{
 	width:100%;
-	height:383px;
-	margin-top: -2%;
-}
-
-.navbar-inverse{
-	background-color: #353535;
-	opacity: 0.8;
-	border: none;
 }
 .text-center{
-	color: snow;
+	color: #000000;
 	margin-top: -17%;
 	position: relative;
-	font-size: 300%;
+	font-size: 48px;
+	font-weight: 100;
+	font-family: 'Handlee', cursive;
 	opacity: 0.8;
 }
+html,body {
+	width: 100%;
+	overflow-x: hidden;
+}
 
-.container{
-	background-color: white;
-	width:74%;
-	height:100%;
-	margin-left: 13%;
-	margin-top: 6%;
-	position: relative;
+html {
+	font-size: 100%;
+}
+
+
+/* Typography */
+h1,h2,h3, .btn {
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 400;
+	letter-spacing: 1px;
+}
+
+h1 {
+	font-weight: bold;
+	font-size: 100px;
+}
+
+h2 {
+	color: #333;
+	font-size: 40px;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+	margin-top: 8px;
+}
+
+/* Navigation section */
+.navbar-default {
+	background: #ffffff;
+	border: none;
+	box-shadow: 0px 2px 15px 0px #DDDDDD;
+	margin:0;
+}
+
+.navbar-default .navbar-brand {
+	color: #505050;
+	font-size: 28px;
+	font-weight: 600;
+	letter-spacing: 2px;
+	line-height: 40px;
+	margin: 0;
+}
+
+.navbar-default .navbar-nav li a {
+	color: #757575;
+	font-size: 19px;
+	font-weight: 300;
+	line-height: 50px;
+	-webkit-transition: all 0.4s ease-in-out;
+	transition: all 0.4s ease-in-out;
+}
+
+.navbar-default .navbar-nav > li a:hover {
+	color: #c21500 !important;
+}
+
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+	color: #606060;
+	background-color: transparent;
+}
+
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
+	color: #c21500;
+	background-color: transparent;
+}
+
+.navbar-default .navbar-toggle {
+	border: none;
+	padding-top: 10px;
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+	border-color: transparent;
+}
+
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus {
+	background-color: transparent;
+}
+
+.row h3{
+	font-size: 28px;
+	color: #000000;
+	text-align: center
+}
+
+.row hr{
+	border-bottom: solid 1px #9d9d9d;
+}
+
+#products {
+	margin-top: 15px;
+}
+
+.thumbnail{
+	border-radius: 0%;
+	border: none;
+	background-color: #ffffff;
+}
+
+.thumbnail .image{
+	height:220px;
+	width: 90%;
+	margin: 11px;
+	box-shadow: 0px 2px 15px 0px #bfbfbf;
+}
+
+.thumbnail:hover{
+	box-shadow: 5px 0px 40px rgba(0,0,0, .2);
+
+}
+
+.text-info{
+	margin-top:-5%;
+}
+
+.menu2{
+	background-color: snow;
+	border: 1px solid #CCCCCC;
+	width: 50%;
+	height: 100%;
+	float: right;
 }
