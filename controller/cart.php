@@ -6,10 +6,10 @@ include_once "../helper/connect.php";
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Webslesson Tutorial | Multi Tab Shopping Cart By Using PHP Ajax Jquery Bootstrap Mysql</title>
-		<script src="../js/jquery.min.js"></script>
-		<link rel="stylesheet" href="../css/bootstrap.min.css" />
-		<script src="../js/bootstrap.min.js"></script>
+		<title>Order here!</title>
+		<script src="../view/js/jquery.min.js"></script>
+		<link rel="stylesheet" href="../view/css/bootstrap.min.css" />
+		<script src="../view/js/bootstrap.min.js"></script>
 	</head>
 	<body>
 		<br />
@@ -17,10 +17,22 @@ include_once "../helper/connect.php";
 			<?php
 			if(isset($_POST["place_order"]))
 			{
+
+                $Customer_name=$_POST['name'];
+                $email=$_POST['email'];
+                $contact_no=$_POST['contact_no'];
+                $address=$_POST['address'];
+                $landmark=$_POST['landmark'];
+
+			    $insert_customer_details = "
+                INSERT INTO customer_details(Customer_name,email,contact_no,address,landmark) 
+                values ('$Customer_name', '$email', '$contact_no', '$address', '$landmark')";
+
 				$insert_order = "
-				INSERT INTO tbl_order(customer_id, creation_date, order_status)
+				INSERT INTO tbl_order(customer_id, creation_date,  order_status)
 				VALUES('1', '".date('Y-m-d')."', 'pending')      
 				";
+
 				$order_id = "";
 				if(mysqli_query($connect, $insert_order))
 				{
@@ -35,7 +47,8 @@ include_once "../helper/connect.php";
 					VALUES('".$order_id."', '".$values["product_name"]."', '".$values["product_price"]."', '".$values["product_quantity"]."');
 					";
 				}
-				if(mysqli_multi_query($connect, $order_details))
+
+                if(mysqli_multi_query($connect, $order_details))
 				{
 					unset($_SESSION["shopping_cart"]);
 					echo '<script>alert("You have successfully place an order...Thank you")</script>';
